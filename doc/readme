@@ -1,0 +1,82 @@
+/threat/feed 获取feeddata数据，包含源（ip，lan，lat，国家），目的（ip，lan，lat，国家），时间，协议，描述（目前为空)
+/threat/rank-list 获取统计数据，来源国家排名，目的国家排名，协议数量排名，来源IP排名
+
+1.data 加端口字段  源IP 来源国家（简写加地图） 目标tag（modbus-honey-cn） 端口 协议 时间 (最近一个月)
+2.国家排行（旗） 攻击者排行 data 协议  XX(top 10)
+3.base_data + 实时
+
+request:/threat/feed/
+response json:
+{
+ "result":
+        {"country": "US",
+          "source": {
+            "lon": "-117.1324",
+            "ip": "71.6.135.131",
+            "port": "xxx",
+            "lat": "32.8073"
+          },
+          "protocol": "IEC104",
+          "destination": {
+            "lon": "-97.0",
+            "ip_tag": "xxxxYYYYYYY",
+            "port": "xxx"
+            "lat": "38.0"
+          },
+          "timestamp": "2016-12-20T03:46:00.891000"
+        }
+"code":200
+}
+request:/threat/rank-list/
+response json:
+
+{
+ "top_country": {
+                 {"count":"xxx","country":"countryname"},
+                 {"count":"xxx","country":"countryname"},
+                 {"count":"xxx","country":"countryname"},
+                 {"count":"xxx","country":"countryname"},
+                 {"count":"xxx","country":"countryname"},
+                 {"count":"xxx","country":"countryname"},
+                 {"count":"xxx","country":"countryname"},
+                 {"count":"xxx","country":"countryname"},
+                 {"count":"xxx","country":"countryname"},
+                 {"count":"xxx","country":"countryname"},
+                },
+ "top_srcIP": {
+                 {"count":"xxx","srcIP":"srcIPvalue"},
+                 {"count":"xxx","srcIP":"srcIPvalue"},
+                 {"count":"xxx","srcIP":"srcIPvalue"},
+                 {"count":"xxx","srcIP":"srcIPvalue"},
+                 {"count":"xxx","srcIP":"srcIPvalue"},
+                 {"count":"xxx","srcIP":"srcIPvalue"},
+                 {"count":"xxx","srcIP":"srcIPvalue"},
+                 {"count":"xxx","srcIP":"srcIPvalue"},
+                 {"count":"xxx","srcIP":"srcIPvalue"},
+                 {"count":"xxx","srcIP":"srcIPvalue"},
+              },
+ "top_destag": {
+                  {"count":"xxx","destag":"destagvalue"},
+                  {"count":"xxx","destag":"destagvalue"},
+                  {"count":"xxx","destag":"destagvalue"},
+                  {"count":"xxx","destag":"destagvalue"},
+                  {"count":"xxx","destag":"destagvalue"},
+                  {"count":"xxx","destag":"destagvalue"},
+                  {"count":"xxx","destag":"destagvalue"},
+                  {"count":"xxx","destag":"destagvalue"},
+                  {"count":"xxx","destag":"destagvalue"},
+                  {"count":"xxx","destag":"destagvalue"},
+               },
+ "top_protocol": {
+                  {"count":"xxx","protocol":"protocolvalue"},
+                  {"count":"xxx","protocol":"protocolvalue"},
+                  {"count":"xxx","protocol":"protocolvalue"},
+                  {"count":"xxx","protocol":"protocolvalue"},
+                  {"count":"xxx","protocol":"protocolvalue"},
+                  {"count":"xxx","protocol":"protocolvalue"},
+                  {"count":"xxx","protocol":"protocolvalue"},
+                  {"count":"xxx","protocol":"protocolvalue"},
+                  {"count":"xxx","protocol":"protocolvalue"},
+                  {"count":"xxx","protocol":"protocolvalue"},
+                 }
+}
